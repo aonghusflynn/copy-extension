@@ -1,3 +1,7 @@
-var iframe = document.querySelector('.preview-frame.full-height');
-var element = iframe.contentWindow.document.querySelector('body > center');
-console.log(element);
+chrome.browserAction.onClicked.addListener(function (tab) {
+  console.log("begin");
+
+  document.addEventListener("DOMSubtreeModified", function () {
+    alert("something has been changed on page, you should update href tag");
+  });
+});
